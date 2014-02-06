@@ -1,4 +1,4 @@
-Name:           python-Cython
+Name:           cython
 Version:        0.20
 Release:        0
 Url:            http://www.cython.org
@@ -7,12 +7,13 @@ License:        Apache-2.0
 Group:          Development/Languages/Python
 
 Source:         http://pypi.python.org/packages/source/C/Cython/Cython-%{version}.tar.gz
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:  fdupes
 BuildRequires:  python-devel
 Provides:       python-cython = %{version}
 Obsoletes:      python-cython < %{version}
 Requires:       python-xml
+Requires:       python-libxml2
+Requires:       python-lxml
 Requires(post): update-alternatives
 Requires(postun): update-alternatives
 %if 0%{?suse_version} && 0%{?suse_version} <= 1110
@@ -75,7 +76,8 @@ fi
 
 %files
 %defattr(-,root,root,-)
-%doc COPYING.txt LICENSE.txt README.txt ToDo.txt USAGE.txt Doc Demos
+%license COPYING.txt LICENSE.txt
+%doc README.txt ToDo.txt USAGE.txt Doc Demos
 %ghost %{_bindir}/cygdb
 %{_bindir}/cygdb-%{py_ver}
 %ghost %{_bindir}/cython
