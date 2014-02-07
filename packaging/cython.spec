@@ -6,7 +6,7 @@ Summary:        The Cython compiler for writing C extensions for the Python lang
 License:        Apache-2.0
 Group:          Development/Languages/Python
 
-Source:         http://pypi.python.org/packages/source/C/Cython/Cython-%{version}.tar.gz
+Source:         http://pypi.python.org/packages/source/C/Cython/cython-%{version}.tar.gz
 BuildRequires:  fdupes
 BuildRequires:  python-devel
 Provides:       python-cython = %{version}
@@ -16,9 +16,7 @@ Requires:       python-libxml2
 Requires:       python-lxml
 Requires(post): update-alternatives
 Requires(postun): update-alternatives
-%if 0%{?suse_version} && 0%{?suse_version} <= 1110
-%{!?python_sitearch: %global python_sitearch %(python -c "from distutils.sysconfig import get_python_lib; print get_python_lib(1)")}
-%endif
+
 
 %description
 The Cython language makes writing C extensions for the Python language as
